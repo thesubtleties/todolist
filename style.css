@@ -1,0 +1,593 @@
+@import url("https://use.typekit.net/yft2qdu.css");
+
+html {
+    background: url(background.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.topBar {
+    width: 100vw;
+    height: 3vh;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.39);
+    display: grid;
+    grid-template-columns: 1vw 5vw 1fr;
+    grid-template-areas: ". topBarText .";
+}
+
+.topBarText {
+    color: white;
+    grid-area: topBarText;
+    align-self: center;
+    font-size: 2vh;
+    user-select: none;
+    font-family: vidange-pro, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.content {
+    display: grid;
+    min-width: 100%;
+    min-height: 100%;
+    grid-template-columns: 4vw 15vw 20vw 30vw 1fr;
+    grid-template-rows: 15vh 10vh 65vh 10vh;
+    grid-template-areas: 
+                        ". . . . ."
+                        ". controlButtons controlButtons . ."
+                        ". projectList taskList editList ."
+                        ". . . . .";
+        
+
+}
+
+.controlButtonsArea {
+    grid-area: controlButtons;
+    place-self: center;
+}
+.controlButton {
+    font-family: elektrix, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    background-color: rgba(255, 255, 255, 0.911);
+    color: rgba(0, 0, 0, 0.897);
+    font-size: 1.5vw;
+    border: 3px solid rgba(165, 165, 165, 0.74);
+    margin-left: .6vw;
+    margin-right: .6vw;
+    border-radius: 8px;
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.815);
+    box-shadow: 0 0 10px white;
+    line-height: 2.5vw;
+    padding-left: .6vw;
+    padding-right: .6vw;
+}
+.controlButton:hover {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+}
+.controlButton:active {
+    box-shadow: 0 0 20px white;
+}
+.controlButton:focus {
+    outline: none;
+}
+
+.projectList {
+    grid-area: projectList;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: flex-start;
+}
+.projectBox {
+    background-color: rgba(255, 255, 255, 0.815);
+    border-radius: 4px;
+    width: 80%;
+    height: 3vw;
+    border: 3px solid black;
+    font-family: elektrix, sans-serif;
+    font-size: 1.5vw;
+    text-align: center;
+    box-shadow: 0 0 5px white;
+    margin-top: .3vw;
+    margin-bottom: .3vw;
+    text-shadow: 0 0 2px rgba(206, 4, 4, 0.815);
+}
+
+.projectBox:hover {
+    background-color: rgba(255, 255, 255, 0.952);
+    color: rgb(206, 4, 4);
+    font-weight: 700;
+    text-shadow: 0 0 2px rgba(206, 4, 4, 0.815);
+}
+
+.projectBox:active {
+    box-shadow: 0 0 20px white;
+}
+.projectSelected {
+    background-color: rgba(255, 255, 255, 0.952);
+    color: rgb(206, 4, 4);
+    box-shadow: 0 0 20px white;
+}
+.taskBox {
+    background-color: rgba(255, 255, 255, 0.815);
+    border-radius: 4px;
+    width: 80%;
+    height: 4vw;
+    border: 3px solid black;
+    font-family: elektrix, sans-serif;
+    font-size: 1.5vw;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 33% 33% 33%; 
+    grid-template-areas: 
+                        "edit taskName taskName complete"
+                        "description description description description"
+                        "dueDate dueDate dateAdded dateAdded";
+    place-items: center;
+    margin-top: .3vw;
+    margin-bottom: .3vw;
+}
+.editProjectBox {
+    background-color: rgba(250, 246, 226, 0.774);
+    border-radius: 4px;
+    width: 80%;
+    height: auto;
+    border: 3px solid black;
+    box-shadow: 0 0 5px rgba(214, 205, 153, 0.726);
+    font-family: vidange-pro, sans-serif;
+    font-size: 1.5vw;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 7vh 7vh 7vh; 
+    grid-template-areas: 
+                        ". editTitle editTitle exitEditTaskBox"
+                        "editProjectNameText editProjectNameText editProjectNameText editProjectNameText"
+                        ". submit delete .";
+    place-items: center;
+    margin-top: .3vw;
+    margin-bottom: .3vw;
+
+}
+.makeNewProjectBox {
+    background-color: rgba(250, 246, 226, 0.774);
+    border-radius: 4px;
+    width: 80%;
+    height: auto;
+    border: 3px solid black;
+    box-shadow: 0 0 5px rgba(214, 205, 153, 0.726);
+    font-family: vidange-pro, sans-serif;
+    font-size: 1.5vw;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 7vh 7vh 7vh; 
+    grid-template-areas: 
+                        ". editTitle editTitle exitEditTaskBox"
+                        "editProjectNameText editProjectNameText editProjectNameText editProjectNameText"
+                        ". submit submit .";
+    place-items: center;
+    margin-top: .3vw;
+    margin-bottom: .3vw;
+
+}
+.editTaskBox {
+        background-color: rgba(250, 246, 226, 0.774);
+        border-radius: 4px;
+        width: 80%;
+        height: auto;
+        border: 3px solid black;
+        box-shadow: 0 0 5px rgba(214, 205, 153, 0.726);
+        font-family: vidange-pro, sans-serif;
+        font-size: 1.5vw;
+        text-align: center;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 7vh 5vh 5vh 5vh 5vh; 
+        grid-template-areas: 
+                            ". editTitle editTitle exitEditTaskBox"
+                            "editTaskName editTaskName editProjectName editProjectName"
+                            "editDescription editDescription editDescription editDescription"
+                            "editPriority editPriority editDueDate editDueDate"
+                            ". submit delete .";
+        place-items: center;
+        margin-top: .3vw;
+        margin-bottom: .3vw;
+
+    }
+    .newTaskBox {
+        background-color: rgba(250, 246, 226, 0.774);
+        border-radius: 4px;
+        width: 80%;
+        height: auto;
+        border: 3px solid black;
+        box-shadow: 0 0 5px rgba(214, 205, 153, 0.726);
+        font-family: vidange-pro, sans-serif;
+        font-size: 1.5vw;
+        text-align: center;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-rows: 7vh 5vh 5vh 5vh 5vh; 
+        grid-template-areas: 
+                            ". editTitle editTitle exitEditTaskBox"
+                            "editTaskName editTaskName editProjectName editProjectName"
+                            "editDescription editDescription editDescription editDescription"
+                            "editPriority editPriority editDueDate editDueDate"
+                            ". submit submit .";
+        place-items: center;
+        margin-top: .3vw;
+        margin-bottom: .3vw;
+
+    }
+
+.editTaskName {
+    grid-area: editTaskName;
+    font-size: .8vw;
+}
+input#title {
+    width: 6vw;
+    background-color: rgba(0, 17, 255, 0.432);
+    color: white;
+    border: none;
+    font-family: vidange-pro, sans-serif;
+    font-size: .6vw;
+}
+input#title:focus {
+    outline: none;
+}
+.editDueDate {
+    grid-area: editDueDate;
+    font-size: .8vw;
+}
+input#editDueDate {
+    width: 6vw;
+    background-color: rgba(0, 17, 255, 0.432);
+    color: rgb(255, 255, 255);
+    border: none;
+    font-family: vidange-pro, sans-serif;
+    font-size: .6vw;
+}
+
+.editProjectName {
+    grid-area: editProjectName;
+    font-size: .8vw;
+}
+.editProjectNameText {
+    grid-area: editProjectNameText;
+    font-size: 1.2vw;
+}
+input#projectNameText {
+    width: 10vw;
+    background-color: rgba(0, 17, 255, 0.432);
+    color: white;
+    border: none;
+    font-family: vidange-pro, sans-serif;
+    font-size: 1vw;
+
+}
+input#projectNameText:focus {
+    outline: none;
+}
+select#project {
+    width: 6vw;
+    background-color: rgba(0, 17, 255, 0.432);
+    color: white;
+    border: none;
+    font-family: vidange-pro, sans-serif;
+    font-size: .6vw;
+}
+select#project:focus {
+    outline: none;
+}
+.editPriority {
+    grid-area: editPriority;
+    font-size: .8vw;
+}
+select#priority {
+    width: 6vw;
+    background-color: rgba(0, 17, 255, 0.432);
+    color: white;
+    border: none;
+    font-family: vidange-pro, sans-serif;
+    font-size: .6vw;
+}
+select#priority:focus {
+    outline: none;
+}
+option:focus {
+    outline: none;
+}
+option {
+    border: none;
+}
+.editDescription {
+    grid-area: editDescription;
+    font-size: .8vw;
+}
+input#description {
+    width: 15vw;
+    background-color: rgba(0, 17, 255, 0.432);
+    color: white;
+    border: none;
+    font-family: vidange-pro, sans-serif;
+    font-size: .6vw;
+}
+input#description:focus {
+    outline: none;
+
+}
+.submitButton {
+    font-family: elektrix, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    background-color: rgba(2, 30, 192, 0.568);
+    color: rgba(255, 255, 255, 0.726);
+    font-size: 1vw;
+    border: 2px solid rgba(0, 0, 0, 0.74);
+    border-radius: 5px;
+    text-shadow: 0 0 2px rgba(0, 26, 255, 0.815);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.479);
+    padding-left: .6vw;
+    padding-right: .6vw;
+    padding-top: .2vw;
+    padding-bottom: .2vw;
+    grid-area: submit;
+}
+.submitButton:hover {
+    background-color: rgba(2, 30, 192, 0.76);
+    color: rgba(255, 255, 255, 0.959);
+}
+.submitButton:active {
+    box-shadow: 0 0 10px rgba(26, 15, 185, 0.548);
+}
+.submitButton:focus {
+    outline: none;
+}
+.deleteButton {
+    font-family: elektrix, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    background-color: rgba(192, 2, 2, 0.568);
+    color: rgba(255, 255, 255, 0.726);
+    font-size: 1vw;
+    border: 2px solid rgba(0, 0, 0, 0.74);
+    border-radius: 5px;
+    text-shadow: 0 0 2px rgba(192, 2, 2, 0.705);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.438);
+    padding-left: .6vw;
+    padding-right: .6vw;
+    padding-top: .2vw;
+    padding-bottom: .2vw;
+    grid-area: delete;
+}
+.deleteButton:hover {
+    background-color: rgba(192, 2, 2, 0.76);
+    color: rgba(255, 255, 255, 0.959);
+}
+.deleteButton:active {
+    box-shadow: 0 0 10px rgba(184, 10, 10, 0.568);
+}
+.deleteButton:focus {
+    outline: none;
+}
+.exitEditTaskBox {
+    color: rgba(212, 4, 4, 0.507);
+    font-weight: 400;
+    user-select: none;
+    grid-area: exitEditTaskBox;
+    margin-top: -.1vw;
+    margin-right: .3vw;
+    font-family:  elektrix, sans-serif;
+    font-size: 2vw;
+    font-weight: 700;
+    justify-self: end;
+    align-self: start;
+}
+.exitEditTaskBox:hover {
+    color: rgba(212, 4, 4, 0.801);
+}
+.exitEditTaskBox:active {
+    text-shadow: 0 0 3px rgba(212, 4, 4, 0.507);
+}
+.editAreaTitle {
+    grid-area: editTitle;
+}
+
+.taskComplete {
+    font-size: .9vw;
+    font-family: swing-king;
+    grid-area: complete;
+    user-select: none;
+    justify-self: end;
+    margin-right: .2vw;
+    color: rgba(0, 0, 0, 0.322);
+}
+.taskComplete:hover {
+    color: rgb(180, 0, 0);
+}
+.taskComplete:active {
+    text-shadow: 0 0 2px rgba(187, 0, 0, 0.822);
+}
+.taskNotComplete {
+    font-size: .9vw;
+    font-family: swing-king;
+    grid-area: complete;
+    user-select: none;
+    justify-self: end;
+    margin-right: .2vw;
+    color: rgb(180, 0, 0);
+}
+.taskNotComplete:hover {
+    color: rgba(85, 85, 85, 0.514);
+}
+.taskNotComplete:active {
+    text-shadow: 0 0 2px rgba(85, 85, 85, 0.514);
+}
+
+.taskEdit {
+    grid-area: edit;
+    color: rgba(0, 0, 0, 0.322);
+    justify-self: start;
+    font-size: .9vw;
+    font-family: swing-king;
+    user-select: none;
+    margin-left: .2vw;
+}
+.taskEdit:hover {
+    color: rgba(26, 58, 238, 0.705);
+}
+.taskEdit:active {
+    text-shadow: 0 0 1px rgba(26, 58, 238, 0.705);
+}
+.description {
+    font-size: .9vw;
+    grid-area: description;
+}
+
+.dueDate {
+    font-size: .9vw;
+    grid-area: dueDate;
+}
+.dateAdded {
+    font-size: .9vw;
+    grid-area: dateAdded;
+}
+.taskBoxHigh {
+    background-color: rgba(255, 255, 255, 0.815);
+    border-radius: 4px;
+    width: 80%;
+    height: 5vw;
+    border: 3px solid black;
+    font-family: elektrix, sans-serif;
+    font-size: 1.5vw;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 33% 33% 33%; 
+    grid-template-areas: 
+                        "edit taskName taskName complete"
+                        "description description description description"
+                        "dueDate dueDate dateAdded dateAdded";
+    place-items: center;
+    margin-top: .3vw;
+    margin-bottom: .3vw;
+    box-shadow: 0 0 10px rgba(206, 4, 4, 0.815);
+    border-color: rgb(133, 62, 62);
+}
+.taskBoxMid {
+    background-color: rgba(255, 255, 255, 0.815);
+    border-radius: 4px;
+    width: 80%;
+    height: 4vw;
+    border: 3px solid black;
+    font-family: elektrix, sans-serif;
+    font-size: 1.5vw;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 33% 33% 33%; 
+    grid-template-areas: 
+                        "edit taskName taskName complete"
+                        "description description description description"
+                        "dueDate dueDate dateAdded dateAdded";
+    place-items: center;
+    margin-top: .3vw;
+    margin-bottom: .3vw;
+    box-shadow: 0 0 10px rgba(252, 216, 16, 0.822);
+    border-color: rgb(206, 191, 105);
+}
+.taskBoxLow {
+    background-color: rgba(255, 255, 255, 0.815);
+    border-radius: 4px;
+    width: 80%;
+    height: 4vw;
+    border: 3px solid black;
+    font-family: elektrix, sans-serif;
+    font-size: 1.5vw;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 33% 33% 33%; 
+    grid-template-areas: 
+                        "edit taskName taskName complete"
+                        "description description description description"
+                        "dueDate dueDate dateAdded dateAdded";
+    place-items: center;
+    margin-top: .3vw;
+    margin-bottom: .3vw;
+    box-shadow: 0 0 10px rgba(43, 89, 238, 0.815);
+    border-color:  rgb(38, 56, 116);
+}
+.projectName {
+    color: rgba(206, 4, 4, 0.815);
+    font-weight: 700;
+    user-select: none;
+    margin-top: .8vw;
+    
+   
+}
+.projectDelete {
+    color: rgba(0, 0, 0, 0.815);
+    font-weight: 400;
+    user-select: none;
+    position: absolute;
+    margin-left: 11.2vw;
+    margin-top: -.1vw;
+    font-family: vidange-pro, sans-serif;
+    font-size: 1.2vw;
+}
+.projectDelete:hover {
+    color: rgba(206, 4, 4, 0.815);
+}
+.projectDelete:active {
+    text-shadow: 0 0 1px rgba(255, 0, 0, 0.596);
+}
+
+.projectEdit {
+    color: rgba(0, 0, 0, 0.322);
+    font-weight: 400;
+    user-select: none;
+    position: absolute;
+    margin-left: 10.9vw;
+    margin-top: -.1vw;
+    font-family: swing-king, sans-serif;
+    font-size: .9vw;
+    text-shadow: none;
+}
+
+.projectEdit:hover {
+    color: rgba(26, 58, 238, 0.705);
+}
+.projectEdit:active {
+    text-shadow: 0 0 1px rgba(26, 58, 238, 0.705);
+}
+
+.taskList {
+    grid-area: taskList;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: flex-start;
+}
+
+.taskName {
+    font-size: 1.3vw;
+    font-weight: 700;
+    grid-area: taskName;
+    
+}
+.editList{
+    grid-area: editList;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-items: flex-start;
+}
