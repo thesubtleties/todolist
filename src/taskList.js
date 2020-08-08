@@ -87,11 +87,13 @@ const taskList = (() => {
         }
     }
     const deleteProject = (projectName) => {
-        tasks.forEach(task => {
-            if (task.project == projectName) {
-                tasks.splice(findTaskNumber(task), 1)
+        console.log(tasks);
+        for (let i = tasks.length - 1; i >= 0; i--) {
+            let tempTask = tasks[i];
+            if (tempTask.project == projectName) {
+                tasks.splice(i, 1)
             }
-        })
+        }
         removeProjectFromList(projectName);
     }
 

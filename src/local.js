@@ -19,6 +19,7 @@ const localStore = (() => {
     const getCurrentFromStorage = () => {
         return JSON.parse(localStorage.getItem('currentProject'));
     }
+
     const checkStorage = () => {
         if (localStorage.check == 'true') {
             return 1;
@@ -34,6 +35,7 @@ const localStore = (() => {
         getProjectsFromStorage,
         getTasksFromStorage,
         getCurrentFromStorage
+
     }
 })();
 
