@@ -126,10 +126,12 @@ let events = (() => {
         let submitButton = document.getElementById('submit');
         submitButton.addEventListener('click', () => {
             let taskInput = dom.makeObjectFromInput();
+            if (taskInput.project != '') {
             taskList.addTask(taskList.taskFactory(taskInput));
             dom.projectSelected(taskInput.project);
             dom.buildTaskList(taskInput.project); 
             dom.clearEditArea();
+            }
             
         })
 

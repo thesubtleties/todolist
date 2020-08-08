@@ -7,10 +7,17 @@ if (localStore.checkStorage() == 0) {
     taskList.makeDefaultTask();
     dom.buildProjectList();    
 }
-else {
+const tempProjectCheck = localStore.getProjectsFromStorage();
+console.log(tempProjectCheck);
+console.log(tempProjectCheck != []);
+if (tempProjectCheck.length != 0) {
     taskList.makeTasks(localStore.getTasksFromStorage());
     taskList.initializeProjectList(localStore.getProjectsFromStorage());
     dom.buildProjectList();
+}
+else {
+    taskList.makeDefaultTask();
+    dom.buildProjectList();    
     
 }
 
