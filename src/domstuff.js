@@ -44,7 +44,6 @@ const dom = (() => {
     const buildTaskDiv = (task) => {
         let taskDiv = document.createElement('div');
         taskDiv.classList.add(`taskBox${task.priority}`);
-        //taskDiv.setAttribute('data-id', `${task.id}`);
         taskDiv.innerHTML = 
                             `<div class = "taskName">${task.name}</div>
                             <div class = "description">${task.description}</div>
@@ -70,8 +69,9 @@ const dom = (() => {
     const makeProjectDropdown = () => {
         let projects = taskList.returnProjectList();
         let projectOptions;
+        console.log(taskList.currentProject);
         projects.forEach(project => {
-            let projectOption = `<option value="${project}">${project}</option>`
+            let projectOption = (taskList.currentProject == project) ? `<option value="${project}" selected="selected">${project}</option>` : `<option value="${project}">${project}</option>`
             projectOptions += projectOption;
         })
         return projectOptions;
@@ -218,14 +218,13 @@ const dom = (() => {
     }
 
     const projectSelected = (project, isFirst) => {
-        if (taskList.currentProject != project) {
-        //console.log(taskList.currentProject);
+        console.log(taskList.currentProject);
         if (isFirst != true) {turnOffOldProject(taskList.currentProject);}
         let projectDiv = document.getElementById(`${project}`);
         projectDiv.classList.toggle('projectSelected');
         buildTaskList(project);
         taskList.currentProject = project;
-        }
+        
     }
     const turnOffOldProject = (oldProject) => {
         let projectDiv = document.getElementById(`${oldProject}`);

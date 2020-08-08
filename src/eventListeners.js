@@ -105,14 +105,22 @@ let events = (() => {
         deleteButton.addEventListener('click', () => {
             taskList.deleteProject(oldProject);
             dom.clearEditArea();
-            dom.buildProjectList();
-            dom.buildTaskList();
+            let tempProjects = taskList.returnProjectList();
+            if (tempProjects[0] == undefined){ 
+                dom.clearTaskList();
+                dom.clearProjectList();
+            }
+                else {
             
-
-
+                dom.buildProjectList();
+                dom.projectSelected(tempProjects[0], true);
+                dom.buildTaskList(tempProjects[0]);
+                }
+            
         });
 
     }
+
 
     const pressSubmitAddTask = () => {
         let submitButton = document.getElementById('submit');
