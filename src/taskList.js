@@ -106,7 +106,7 @@ const taskList = (() => {
     taskCounter++;
   };
   const getTaskById = (id) => {
-    const ourTask = tasks.find((task) => (task.id === id));
+    const ourTask = tasks.find((task) => (task.id == id));
     return ourTask;
   };
 
